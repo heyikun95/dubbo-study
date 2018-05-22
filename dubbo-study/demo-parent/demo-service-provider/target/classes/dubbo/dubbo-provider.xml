@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://code.alibabatech.com/schema/dubbo
+       http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!--应用信息配置-->
+    <dubbo:application name="demo-service" logger="slf4j" version="1.0.0">
+        <dubbo:parameter key="shutdown.timeout" value="60000"/>
+    </dubbo:application>
+
+    <!--注册中心配置-->
+    <dubbo:registry protocol="zookeeper" address="zookeeper1:2181,zookeeper2:2182,zookeeper3:2183" timeout="20000"
+                    register="true" subscribe="true" file="${user.home}/dubboRegistryCache/service-common.cache"/>
+
+    <!--服务提供者协议配置-->
+    <dubbo:protocol name="dubbo" port="21880"/>
+
+    <!--服务提供者缺省值配置-->
+    <dubbo:provider protocol="dubbo" timeout="10000" version="1.0" delay="-1" retries="0" />
+
+    <!--服务提供者暴露服务配置-->
+    <dubbo:service interface="com.example.demo.service.IDemoService" ref="demoService"/>
+    <dubbo:service interface="com.example.demo.service.IRedisDemoService" ref="redisDemoService" />
+
+</beans>
