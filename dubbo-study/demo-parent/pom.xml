@@ -9,9 +9,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>common-parent</artifactId>
+    <artifactId>demo-parent</artifactId>
     <packaging>pom</packaging>
-    <name>common-parent</name>
+    <name>demo-parent</name>
     <modules>
         <module>demo-api</module>
         <module>demo-service-provider</module>
