@@ -1,0 +1,14 @@
+.idea
+.mvn
+.svn
+out
+classes
+target
+**/target
+**/classes
+**/lib
+*.iml
+build
+logs
+.DS_Store
+**/.DS_Store
