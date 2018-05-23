@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.service.IDemoService;
 import com.example.demo.service.IRedisDemoService;
+import com.example.demo.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,19 +18,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
 
     @Autowired
-    private IDemoService demoService;
+    private TestService testService;
 
-    @Autowired
-    private IRedisDemoService redisDemoService;
 
     @RequestMapping(value = "/test",method = RequestMethod.GET)
     public String test(){
-        return this.demoService.demo();
+        return this.testService.test();
     }
 
 
-    @RequestMapping(value = "/testRedis",method = RequestMethod.GET)
-    public void testRedis(){
-        this.redisDemoService.test();
-    }
 }
