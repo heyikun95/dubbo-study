@@ -8,6 +8,6 @@
        http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
     <!-- 服务消费者引用服务配置 -->
-    <dubbo:reference interface="com.example.demo.service.TestService" id="testService" version="1.0"/>
+    <dubbo:reference interface="com.example.demo.service.TestService" version="1.0"/>
 
 </beans>
