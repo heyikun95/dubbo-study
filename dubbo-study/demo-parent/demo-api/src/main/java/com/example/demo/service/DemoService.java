@@ -23,6 +23,7 @@ public class DemoService implements IDemoService {
             count = count * i;
             i--;
         }
+        System.out.println("This is a test to test Git !");
         return count;
     }
 }
